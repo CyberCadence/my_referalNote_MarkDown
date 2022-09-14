@@ -1,15 +1,15 @@
 {
   "main": {
-    "id": "c4fac1b4d24e2b1d",
+    "id": "d386f0150f8a3942",
     "type": "split",
     "children": [
       {
-        "id": "40fbb8069ea6ac8f",
+        "id": "ada776cdab49e0f4",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Ecommerce app with flutter.md",
+            "file": "connect with backend api.md",
             "mode": "source",
             "source": false
           }
@@ -19,15 +19,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "23fbff8242772adb",
+    "id": "a65cceb5ae59ba3b",
     "type": "split",
     "children": [
       {
-        "id": "52ace249bec38607",
+        "id": "2bbc4d4262905450",
         "type": "tabs",
         "children": [
           {
-            "id": "4fa46e271b9d2d49",
+            "id": "3c0c9516c4c07f3d",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -35,7 +35,7 @@
             }
           },
           {
-            "id": "6f2996a5db0c7e11",
+            "id": "cfc3a384d3e8996a",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -50,7 +50,7 @@
             }
           },
           {
-            "id": "db4a9f72b6f57681",
+            "id": "4ba45a21468c4a48",
             "type": "leaf",
             "state": {
               "type": "starred",
@@ -61,23 +61,23 @@
       }
     ],
     "direction": "horizontal",
-    "width": 231.5
+    "width": 135.5
   },
   "right": {
-    "id": "7c60920662bd4299",
+    "id": "3ce0ed0d7c9c54bb",
     "type": "split",
     "children": [
       {
-        "id": "2ba05de71e9884cc",
+        "id": "085e17d66eac1cc5",
         "type": "tabs",
         "children": [
           {
-            "id": "f7e286eaeb116941",
+            "id": "6c61c363dbf1cb39",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Ecommerce app with flutter.md",
+                "file": "connect with backend api.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,19 +89,19 @@
             }
           },
           {
-            "id": "fbf9a6a1cf7c2be2",
+            "id": "bc3bf57c606f3b7e",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Ecommerce app with flutter.md",
+                "file": "connect with backend api.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "5b5ccae469c4f65a",
+            "id": "164abb1111e28798",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -112,12 +112,12 @@
             }
           },
           {
-            "id": "fa8dcbbdc2e365ff",
+            "id": "cad2579d4de27abd",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "Ecommerce app with flutter.md"
+                "file": "connect with backend api.md"
               }
             }
           }
@@ -128,10 +128,6 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "40fbb8069ea6ac8f",
-  "lastOpenFiles": [
-    "2022-09-07.md",
-    "Untitled.md",
-    "Ecommerce app with flutter.md"
-  ]
+  "active": "ada776cdab49e0f4",
+  "lastOpenFiles": []
 }

@@ -250,3 +250,366 @@ const mongoDB = 'mongodb+srv://user1:user1@cluster0.s2wcd4k.mongodb.net/newname?
 ```
 database name change can be done by providing a name infront of ?
 
+## login page setup
+create a new route for login page
+```
+router.post("/login", async function(req, res) {}
+```
+
+
+save the email and password value inside the req.body inside a variable
+```
+const email = req.body.email;
+
+const password = req.body.password;
+```
+
+ 
+```
+const foundUser = await UserModel.findOne({ email: email });// search for email value provided by user in req inside in mongodb 
+
+if(!foundUser) {    // if email is not found  it will return this messsage
+
+res.json({ success: false, error: "user-not-found" });
+
+return;
+
+}
+```
+
+```
+  
+
+const correctPassword = await bcrypt.compare(password, foundUser.password); 
+      // will compare the password provided by user inside req.body with the password of the user saved inside db whenever the above email condition is met true
+      
+if(!correctPassword) {
+
+res.json({ success: false, error: "incorrect-password" });
+
+return;
+
+}
+```
+
+
+if both email and password is met true condition ,returns this
+
+```
+res.json({ success: true, data: foundUser });
+```
+
+complete code of login route
+```
+router.post("/login", async function(req, res) {
+
+const email = req.body.email;
+
+const password = req.body.password;
+
+  
+
+const foundUser = await UserModel.findOne({ email: email });
+
+if(!foundUser) {
+
+res.json({ success: false, error: "user-not-found" });
+
+return;
+
+}
+
+  
+
+const correctPassword = await bcrypt.compare(password, foundUser.password);
+
+if(!correctPassword) {
+
+res.json({ success: false, error: "incorrect-password" });
+
+return;
+
+}
+
+  
+
+res.json({ success: true, data: foundUser });
+
+});
+```
+
+## new route with userid
+
+
+
+```
+  
+
+router.get('/:userid',async function(req,res){
+
+  
+
+const userid= req.params.userid;
+
+const foundUser= await UserModel.findOne({userid:userid});
+
+if(!foundUser){
+
+  
+
+res.json({success:false,error:"user not found"});
+
+return;
+
+  
+
+}
+
+  
+
+res.json({success:true,data:foundUser});
+
+  
+  
+
+});
+```
+
+## product model creation
+
+
+alike above ,now we have toi create the product model,product routes also
+
+
+```
+const{Schema,model} = require('mongoose');
+
+  
+  
+
+const productSchema= new Schema({
+
+  
+
+productid:{type:String,required:true,unique:true},
+
+  
+
+title:{type:String,required:true},
+
+description:{type:String,default:""},styles:{type:Array,default:[]},
+
+  
+
+price:{type:Number,required:true},
+
+images:{type:Array,default:[]},
+
+createdOn:{type:Date,default:Date.now}
+
+});
+
+  
+
+const productModel=model("Product",productSchema);
+
+module.exports=productModel;
+```
+
+
+## Product route page setup
+### create product page setup
+```
+const router=require('express').Router();
+
+const ProductModel=require('./../models/product_model');
+
+  
+router.post("/addproduct",async function(req,res){
+
+  
+const ProductData=req.body;
+
+const newProduct= new ProductModel(ProductData);
+
+await newProduct.save(function(err){
+
+if(err){
+
+  res.json({success:false,error:err});
+
+return;
+
+}
+
+res.json({success:true,data:newProduct});
+
+});
+
+});
+
+  
+module.exports=router;
+```
+
+aslike other routes import it in server.js 
+```
+const CategoryRoute=require('./routes/categoryroute');
+
+app.use("/api/category",CategoryRoute);
+```
+
+### get all category
+inorder to list all categories ,create a new route ,then
+
+by using CategoryModel.find( ) function alone we can show all of the categories for error handling we are using here .exec( ) execute function hich contains a callback of error and docs,the docs will hold all values
+```
+router.get('/',async function(req,res){
+
+  
+await CategoryModel.find().exec(function(err,categories){
+
+  
+if(err){
+
+res.json({success:false,error:err});
+
+}
+
+res.json({success:true,data:categories});
+
+})
+
+});
+```
+
+
+till now we don t know the products & its related category, so inorder to list the product along with the category,
+we need to add the category property to the product model
+
+```
+category:{type:Schema.Types.ObjectId,ref:"Category"} // "Category" is name provided while creating model
+```
+add new property to older one 
+```
+  
+
+const productSchema= new Schema({
+
+  
+
+productid:{type:String,required:true,unique:true},
+
+ category:{type:Schema.Types.ObjectId,ref:"Category"},
+
+  
+
+title:{type:String,required:true},
+
+description:{type:String,default:""},styles:{type:Array,default:[]},
+
+  
+
+price:{type:Number,required:true},
+
+images:{type:Array,default:[]},
+
+createdOn:{type:Date,default:Date.now}
+
+});
+```
+
+after creation of category in productmodel, now while adding new products, we need to mention the category id in to the  new products just like below
+
+![[postman get categorydetails.png|500]]
+here copy the _id of the particular category  and paste it while creating new product_
+![[addproduct with category(postman.png]]
+now create a new route for listing all products and also add populate ( ) function and mention the the property so it will now list the product with details 
+
+```
+router.get('/',async function(req,res){
+
+  
+  
+
+await ProductModel.find().populate('category').exec(function(err,products){
+
+  
+
+if(err){
+
+res.json({success:false,error:err});
+
+}
+
+res.json({success:true,data:products});
+
+  
+
+})
+
+});
+```
+![[s3.png]]
+
+
+## delete product by id
+```
+router.delete('/',async function(req,res){
+
+const productId= req.body.productid
+
+const result= await ProductModel.findOneAndDelete({productid:productId});
+
+if(!result){
+
+  
+
+res.json({success:false,err:'not found'});
+
+return;
+
+}
+
+res.json({success:true,data:result});
+
+  
+  
+
+});
+```
+
+now delete product by just inputing productid 
+
+## Update data
+for updating the existing data we are using put method
+```
+router.put('/',async function(req,res){
+
+  
+
+const ProductData= req.body;
+
+  
+const productid= ProductData.productId;
+
+const result= await ProductModel.findOneAndUpdate({productid:productid},ProductData);
+
+if(!result){
+
+  res.json({success:false,err:"not found data ,can't update"});
+
+}
+
+  res.json({success:true,data:ProductData});
+
+  
+
+});
+```
+
+
+==here in below code ,while we update data  data  we are using product id as a reference because there is no use with the updation of productid so productid of the req.body is used and compared with productid inside the database,then contents need to be updated is stored inside ProductData.==
+const result= await ProductModel.findOneAndUpdate({productid:productid},ProductData);
+
+likely update create routes for update inside categoryroute and userroute also
