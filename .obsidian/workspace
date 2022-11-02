@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "CRUD WITH FIREBASE.md",
+            "file": "E-commerce app with firebase backend(master -riverpod).md",
             "mode": "source",
             "source": false
           }
@@ -77,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CRUD WITH FIREBASE.md",
+                "file": "E-commerce app with firebase backend(master -riverpod).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CRUD WITH FIREBASE.md",
+                "file": "E-commerce app with firebase backend(master -riverpod).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -117,7 +117,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CRUD WITH FIREBASE.md"
+                "file": "E-commerce app with firebase backend(master -riverpod).md"
               }
             }
           }
@@ -129,5 +129,9 @@
     "collapsed": true
   },
   "active": "21f067ff04f83792",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "Personal.md",
+    "App life cycle.md",
+    "CRUD WITH FIREBASE.md"
+  ]
 }
