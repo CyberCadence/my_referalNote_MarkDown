@@ -4,16 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "21f067ff04f83792",
-        "type": "leaf",
-        "state": {
-          "type": "markdown",
-          "state": {
-            "file": "google map.md",
-            "mode": "source",
-            "source": false
+        "id": "feebe3059f66c8cf",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "21f067ff04f83792",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Sqflite crud/sqflite crud/sqflite crud.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        }
+        ]
       }
     ],
     "direction": "vertical"
@@ -31,7 +37,9 @@
             "type": "leaf",
             "state": {
               "type": "file-explorer",
-              "state": {}
+              "state": {
+                "sortOrder": "alphabetical"
+              }
             }
           },
           {
@@ -61,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "f8faea6bebcfa38f",
@@ -77,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "google map.md",
+                "file": "Sqflite crud/sqflite crud/sqflite crud.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "google map.md",
+                "file": "Sqflite crud/sqflite crud/sqflite crud.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -117,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "google map.md"
+                "file": "Sqflite crud/sqflite crud/sqflite crud.md"
               }
             }
           }
@@ -130,6 +139,7 @@
   },
   "active": "21f067ff04f83792",
   "lastOpenFiles": [
+    "google map.md",
     "FLutter local notifications.md",
     "Sqflite crud/sqflite crud/sqflite crud.md",
     "CRUD WITH FIREBASE.md",
@@ -138,7 +148,6 @@
     "connect with backend/connect with backend api.md",
     "App life cycle.md",
     "Interview Prep.md",
-    "E-commerce app with firebase backend(master -riverpod).md",
-    "Personal.md"
+    "E-commerce app with firebase backend(master -riverpod).md"
   ]
 }
